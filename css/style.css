@@ -1,0 +1,51 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: calibri, sans-serif;
+    color: white;
+}
+
+.stars {
+    background-image: url(../images/hori.png), url(../images/stars.png);
+    background-repeat: repeat-x, repeat-x repeat-y;
+}
+
+select {
+    font-family: calibri;
+    width: 205px;
+}
+
+input {
+    margin: 2px;
+    font-family: calibri;
+    background: white;
+}
+
+input[type="text"] {
+    width: 400px;
+}
+
+input[name="name"] {
+    width: 150px;
+    margin-right: 120px;
+}
+
+input[name="password"] {
+    width: 150px;
+}
+
+input[type="submit"] {
+    margin: 5px;
+    width: 100px;
+}
+
+#main {
+    text-align: center;
+}
+
+.error {
+    margin-left: 5px;
+    color: greenyellow;
+}

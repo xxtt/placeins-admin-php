@@ -3,8 +3,6 @@ session_start();
 if (!isset($_SESSION['name'])) {
     header("location: index.php");
 }
-echo "welcome, " . $_SESSION['name'] . "<br><br>";
-
 require_once __DIR__ . '/config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -27,59 +25,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("location: edit.php");
     }
 }
-
-$sql = "SELECT * FROM marker";
-
-$result = mysqli_query($connection, $sql);
-
-echo "<table border='1'>
-<tr>
-<th>title</th>
-<th>about ua</th>
-<th>about us</th>
-<th>about ru</th>
-<th>x</th>
-<th>y</th>
-<th>yt</th>
-<th>category</th>
-<th>address ua</th>
-<th>address us</th>
-<th>address ru</th>
-<th>phone</th>
-<th>link</th>
-<th>parking</th>
-<th>baby</th>
-<th>music</th>
-<th>smoking</th>
-<th>bill</th>
-<th>password</th>
-</tr>";
-
-while ($row = mysqli_fetch_array($result)) {
-    echo "<tr>";
-    echo "<td>" . $row['title'] . "</td>";
-    echo "<td>" . $row['about_ua'] . "</td>";
-    echo "<td>" . $row['about_us'] . "</td>";
-    echo "<td>" . $row['about_ru'] . "</td>";
-    echo "<td>" . $row['x'] . "</td>";
-    echo "<td>" . $row['y'] . "</td>";
-    echo "<td>" . $row['yt'] . "</td>";
-    echo "<td>" . $row['category'] . "</td>";
-    echo "<td>" . $row['address_ua'] . "</td>";
-    echo "<td>" . $row['address_us'] . "</td>";
-    echo "<td>" . $row['address_ru'] . "</td>";
-    echo "<td>" . $row['phone'] . "</td>";
-    echo "<td>" . $row['link'] . "</td>";
-    echo "<td>" . $row['parking'] . "</td>";
-    echo "<td>" . $row['baby'] . "</td>";
-    echo "<td>" . $row['music'] . "</td>";
-    echo "<td>" . $row['smoking'] . "</td>";
-    echo "<td>" . $row['bill'] . "</td>";
-    echo "<td>" . $row['password'] . "</td>";
-    echo "</tr>";
-}
-echo "</table>";
-
 ?>
 
 <!doctype html>
@@ -91,10 +36,14 @@ echo "</table>";
         }
     </style>
     <meta charset="UTF-8">
-    <title>edit places</title>
+    <title>our places</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="images/favicon.ico">
 </head>
-<body>
-<br>
+<body class="stars">
+<a href="http://placeins.com/">
+    <img id="logo" src="images/logo.png" alt="place in space logo" align="middle">
+</a>
 
 <form action="" method="post">
     choose place: </label><?php include 'selection.php'; ?>
@@ -109,5 +58,8 @@ echo "</table>";
 <form action="logout.php" method="get">
     <input type="submit" value="log out">
 </form>
+
+<?php include 'table.php'; ?>
+
 </body>
 </html>

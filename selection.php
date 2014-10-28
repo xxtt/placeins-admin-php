@@ -13,4 +13,3 @@ if ($result->num_rows > 0) {
     echo "Database error !!";
 }
 mysqli_free_result($result);
-mysqli_close($connection);

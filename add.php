@@ -163,42 +163,33 @@ function test_input($connection, $data)
 <head>
     <meta charset="UTF-8">
     <title>add new place</title>
-    <style>
-        .info {
-            color: green;
-        }
-
-        .error {
-            color: mediumvioletred;
-        }
-
-        input[type="text"] {
-            width: 300px;
-        }
-    </style>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="images/favicon.ico">
 </head>
-<body>
+<body class="stars">
 
-<p><b>add new place</b></p>
+<div id="main">
+    <a href="http://placeins.com/">
+        <img id="logo" src="images/logo.png" alt="place in space logo" align="middle">
+    </a>
 
-<div>
-    <p><span class="info">* all fields are required </span></p>
+    <b>add new place</b>
 
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         title: <input type="text" name="title" value='<?php echo $title ?>'>
         <span class="error"><?php echo $titleError; ?></span>
         <br>
-        about ua(400 characters max):<br><textarea style="width: 500px;height:100px;" name="about_ua"
+        about ua(400 characters max):<br><textarea style="width: 500px;height:110px;" name="about_ua"
                                                    maxlength="400"><?php echo $about_ua ?></textarea>
         <span class="error"><?php echo $aboutUaError; ?></span>
         <br>
-        about us(400 characters max):<br><textarea style="width: 500px;height:100px;" name="about_us"
-                                                   maxlength="400"><?php echo $about_us ?></textarea>
-        <span class="error"><?php echo $aboutUsError; ?></span>
-        <br>
-        about ru(400 characters max):<br><textarea style="width: 500px;height:100px;" name="about_ru"
+        about ru(400 characters max):<br><textarea style="width: 500px;height:110px;" name="about_ru"
                                                    maxlength="400"><?php echo $about_ru ?></textarea>
         <span class="error"><?php echo $aboutRuError; ?></span>
+        <br>
+        about us(400 characters max):<br><textarea style="width: 500px;height:110px;" name="about_us"
+                                                   maxlength="400"><?php echo $about_us ?></textarea>
+        <span class="error"><?php echo $aboutUsError; ?></span>
         <br>
         x (map latitude coordinate): <input type="text" name="x" value='<?php echo $x ?>' maxlength="11">
         <span class="error"><?php echo $xError; ?></span>
@@ -216,11 +207,11 @@ function test_input($connection, $data)
         address ua: <input type="text" name="address_ua" value='<?php echo $address_ua ?>' maxlength="100">
         <span class="error"><?php echo $addressUaError; ?></span>
         <br>
-        address us: <input type="text" name="address_us" value='<?php echo $address_us ?>' maxlength="100">
-        <span class="error"><?php echo $addressUsError; ?></span>
-        <br>
         address ru: <input type="text" name="address_ru" value='<?php echo $address_ru ?>' maxlength="100">
         <span class="error"><?php echo $addressRuError; ?></span>
+        <br>
+        address us: <input type="text" name="address_us" value='<?php echo $address_us ?>' maxlength="100">
+        <span class="error"><?php echo $addressUsError; ?></span>
         <br>
         phone: <input type="text" name="phone" value='<?php echo $phone ?>' maxlength="13">
         <span class="error"><?php echo $phoneError; ?></span>
@@ -251,6 +242,8 @@ function test_input($connection, $data)
         <br>
         <input type="submit" name="save" value="save">
         <input type="submit" name="cancel" value="cancel">
+
+        <br>
 
         <p><span class="error"><?php echo $error ?></span></p>
     </form>
